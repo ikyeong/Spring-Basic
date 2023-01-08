@@ -1,0 +1,7 @@
+<!DOCTYPE HTML>
+<body xmlns:th="http://www.thymeleaf.org">
+<h1 th:text="${memo.title}"></h1>
+<p th:text="${memo.contents}"></p>
+<button onclick="history.back()">back</button>
+<button th:onclick="|location.href='@{delete(id=${memo.id})}'|">delete</button>
+</body>

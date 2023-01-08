@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>start page</title>
+    <style>
+        .outbox{
+            width: 200px;
+        }
+        .memo{
+            background-color: whitesmoke;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 2px;
+        }
+        .title{
+            margin: 0px;
+        }
+        .contents{
+            font-size: xx-small;
+            margin: 0px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="outbox">
+        <h1>Memo</h1>
+        <button type="button" onclick="location.href='/new'">new</button>
+    </div>
+    <br>
+    <div th:each="memo : ${memos}" class="outbox">
+        <div class="memo" th:onclick="|location.href='@{view(id=${memo.id})}'|">
+            <p class="title" th:text="${memo.title}"></p>
+            <p class="contents" th:text="${memo.contents}"></p>
+        </div>
+    </div>
+</body>
+</html>
